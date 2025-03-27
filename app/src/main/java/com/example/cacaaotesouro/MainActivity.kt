@@ -67,13 +67,19 @@ class MainActivity : ComponentActivity() {
                 composable("tesouro") {
                     TelaTesouro(
                         message = "Parabéns! Você encontrou o tesouro!",
-                        restartGame = { navigationController.navigate("/home") }
+                        restartGame = {
+                            navigationController.navigate("/home") {
+                                popUpTo("/home") { inclusive = true }
+                            }
+                        }
                     )
                 }
+
+            }
             }
         }
     }
-}
+
 
 @Composable
 fun Tela(
